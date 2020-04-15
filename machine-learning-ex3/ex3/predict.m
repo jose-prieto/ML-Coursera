@@ -23,6 +23,7 @@ p = zeros(size(X, 1), 1);
 
     a1 = [ones(m,1) X]
     Theta1
+    sum(Theta1)
     z2 = a1 * Theta1'
     a2 = [ones(size(z2),1) sigmoid(z2)]
     z3 = a2 * Theta2'
