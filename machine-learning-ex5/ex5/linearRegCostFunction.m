@@ -19,16 +19,21 @@ grad = zeros(size(theta));
 %               You should set J to the cost and grad to the gradient.
 %
 
+%lamba for reg
+    n = size(X,2);
+    thetareg = theta(2:n);
 
+%hypothesis
+    h = X * theta;
 
+%regularized cost function
+    cost = sum((h - y) .^ 2) / (2 * m);
+    reg = lambda * sum(thetareg .^ 2) / (2 * m);
+    J = cost + reg;
 
-
-
-
-
-
-
-
+%regularized gradient
+    grad = X' * (h - y) / m;
+    grad(2:n) += lambda * theta(2:n) / m;
 
 % =========================================================================
 
